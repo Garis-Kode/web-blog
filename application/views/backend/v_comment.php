@@ -263,18 +263,31 @@
                                                 </div>
                                                 <div class="pull-right m-r-md">
                                                     <div class="btn-group">
-                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Action <span class="caret"></span>
-                                                      </button>
+                                                    <?php if($row->comment_status=='0'):?>
+                                                            <?php if($this->session->userdata('role') == 1):?>
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Action <span class="caret"></span>
+                                                                </button>
+                                                            <?php endif;?>
+                                                        <?php else:?>
+                                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    Action <span class="caret"></span>
+                                                            </button>
+                                                        <?php endif;?>
+
                                                       <ul class="dropdown-menu dropdown-menu-right">
                                                         <?php if($row->comment_status=='0'):?>
-                                                        <li><a href="javascript:void(0);" class="btn-publish" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-send"></span> Publish</a></li>
-                                                        <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id;?>" data-comment_msg="<?php echo $row->comment_message;?>"><span class="fa fa-edit"></span> Edit</a></li>
-                                                        <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
+                                                            <?php if($this->session->userdata('role') == 1):?>
+                                                                <li><a href="javascript:void(0);" class="btn-publish" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-send"></span> Publish</a></li>
+                                                                <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id;?>" data-comment_msg="<?php echo $row->comment_message;?>"><span class="fa fa-edit"></span> Edit</a></li>
+                                                                <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
+                                                            <?php endif;?>
                                                         <?php else:?>
                                                         <li><a href="javascript:void(0);" class="btn-reply" data-comment_id="<?php echo $row->comment_id;?>" data-post_id="<?php echo $row->post_id;?>"><span class="fa fa-reply"></span> Reply</a></li>
-                                                        <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id;?>" data-comment_msg="<?php echo $row->comment_message;?>"><span class="fa fa-edit"></span> Edit</a></li>
-                                                        <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
+                                                            <?php if($this->session->userdata('role') == 1):?>
+                                                                <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id;?>" data-comment_msg="<?php echo $row->comment_message;?>"><span class="fa fa-edit"></span> Edit</a></li>
+                                                                <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
+                                                            <?php endif;?>
                                                         <?php endif;?>
                                                       </ul>
                                                     </div>
@@ -306,6 +319,7 @@
                                                             
                                                         </div>
                                                         <div class="pull-right m-r-md">
+                                                            <?php if($this->session->userdata('role') == 1):?>
                                                             <div class="btn-group">
                                                               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 Action <span class="caret"></span>
@@ -315,6 +329,7 @@
                                                                 <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
                                                               </ul>
                                                             </div>
+                                                            <?php endif;?>
                                                         </div>
                                                         <h3 class="no-m"><a href="<?php echo site_url('blog/'.$row->post_slug);?>" target="_blank"><?php echo $row->post_title;?></a></h3>
                                                         <a href="javascript:void(0);" class="search-link"><b><?php echo $row->comment_name?></b>, <?php echo $row->comment_date;?></a>

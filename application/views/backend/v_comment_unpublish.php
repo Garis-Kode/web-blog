@@ -263,7 +263,8 @@
                                                 </div>
                                                 <div class="pull-right m-r-md">
                                                     <div class="btn-group">
-                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <?php if($this->session->userdata('role') == 1):?>
+                                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Action <span class="caret"></span>
                                                       </button>
                                                       <ul class="dropdown-menu dropdown-menu-right">
@@ -277,6 +278,7 @@
                                                         <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
                                                         <?php endif;?>
                                                       </ul>
+                                                    <?php endif;?>
                                                     </div>
                                                 </div>
                                                 <h3 class="no-m"><a href="<?php echo site_url('blog/'.$row->post_slug);?>" target="_blank"><?php echo $row->post_title;?></a></h3>
@@ -296,7 +298,8 @@
                                                             <img src="<?php echo base_url().'assets/images/avatar1.png'?>" class="img-circle" width="50" alt="<?php echo $row->comment_name?>">
                                                         </div>
                                                         <div class="pull-right m-r-md">
-                                                            <div class="btn-group">
+                                                            <?php if($this->session->userdata('role') == 1):?>
+                                                                <div class="btn-group">
                                                               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 Action <span class="caret"></span>
                                                               </button>
@@ -305,6 +308,7 @@
                                                                 <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id;?>"><span class="fa fa-trash"></span> Delete</a></li>
                                                               </ul>
                                                             </div>
+                                                            <?php endif;?>
                                                         </div>
                                                         <h3 class="no-m"><a href="<?php echo site_url('blog/'.$row->post_slug);?>" target="_blank"><?php echo $row->post_title;?></a></h3>
                                                         <a href="javascript:void(0);" class="search-link"><b><?php echo $row->comment_name?></b>, <?php echo $row->comment_date;?></a>
