@@ -64,50 +64,51 @@
                                     <h4 class="panel-title">Profile Setting</h4>
                                 </div>
                                 <div class="panel-body">
-
-                                    <form class="form-horizontal" action="<?php echo site_url('backend/profile/setting');?>" method="post">
-
-                                    <div class="form-group">
-                                        <div class="col-sm-2 text-right">
-                                        <img src="http://localhost/mblog2/theme/images/image_4.png" width="100" class="thumbnail  pull-right">
+                                    <?php echo form_open_multipart('backend/profile/setting');?>
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-2 text-right">
+                                            <img src="<?= base_url('assets/images/') ?><?= $getUser['user_photo'] ?>" width="100" class="thumbnail  pull-right">
+                                            </div>
+                                            <div class="col-sm-10">
+                                            <label for="">Change Photo Profile</label>
+                                            <input type="file" name="foto" class="form-control" id="file">
+                                            <small>(* Rasio 1:1)</small>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-10">
-                                        <label for="">Change Photo Profile</label>
-                                        <input type="file" name="foto" class="form-control" id="file">
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Instagram</label>
-                                        <div class="col-sm-10">
-                                        <input type="text" name="ig" value="" class="form-control"  placeholder="Link Instagram User">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Instagram</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="ig" value="<?= $getUser['user_instagram'] ?>" class="form-control"  placeholder="Link Instagram User">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Linkedin</label>
-                                        <div class="col-sm-10">
-                                        <input type="text" name="in" value="" class="form-control" placeholder="Link Linkedin User">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Linkedin</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="in" value="<?= $getUser['user_linkedin'] ?>" class="form-control" placeholder="Link Linkedin User">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Github</label>
-                                        <div class="col-sm-10">
-                                        <input type="text" name="git" value="" class="form-control" placeholder="Link Github User">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Github</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="git" value="<?= $getUser['user_github'] ?>" class="form-control" placeholder="Link Github User">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-sm-2 control-label">Description</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="desc" class="form-control"  placeholder="Short Desrciption" rows="0"></textarea>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Description</label>
+                                            <div class="col-sm-10">
+                                                <textarea name="desc" class="form-control"  placeholder="Short Desrciption" rows="0"><?= $getUser['user_description'] ?></textarea>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-success">Save</button>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -207,6 +208,18 @@
                         bgColor: '#7EC857'
                     });
             </script>
+             <?php elseif($this->session->flashdata('msg')=='success-profil'):?>
+            <script type="text/javascript">
+                    $.toast({
+                        heading: 'Success',
+                        text: "Profile Changed.",
+                        showHideTransition: 'slide',
+                        icon: 'success',
+                        hideAfter: false,
+                        position: 'bottom-right',
+                        bgColor: '#7EC857'
+                    });
+            </script>
         <?php elseif($this->session->flashdata('msg')=='error-notmatch'):?>
             <script type="text/javascript">
                     $.toast({
@@ -224,6 +237,18 @@
                     $.toast({
                         heading: 'Error',
                         text: "Password was not found.",
+                        showHideTransition: 'slide',
+                        icon: 'error',
+                        hideAfter: false,
+                        position: 'bottom-right',
+                        bgColor: '#FF4859'
+                    });
+            </script>
+            <?php elseif($this->session->flashdata('msg')=='error-img'):?>
+            <script type="text/javascript">
+                    $.toast({
+                        heading: 'Error',
+                        text: "error-img.",
                         showHideTransition: 'slide',
                         icon: 'error',
                         hideAfter: false,
