@@ -38,7 +38,7 @@
         <div class="overlay"></div>
         <main class="page-content content-wrap">
        
-       <?php
+        <?php
             $this->load->view('backend/layout/menubar.php');
         ?>
 

@@ -111,16 +111,16 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="input1" class="col-sm-2 control-label">Facebook URL</label>
+                                            <label for="input1" class="col-sm-2 control-label">Forum URL</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="facebook" class="form-control" value="<?php echo $site_facebook;?>" id="input1" placeholder="Facebook URL">
+                                                <input type="text" name="facebook" class="form-control" value="<?php echo $site_facebook;?>" id="input1" placeholder="Forum URL">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="input1" class="col-sm-2 control-label">Twitter URL</label>
+                                            <label for="input1" class="col-sm-2 control-label">Github URL</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="twitter" class="form-control" value="<?php echo $site_twitter;?>" id="input1" placeholder="Twitter URL">
+                                                <input type="text" name="twitter" class="form-control" value="<?php echo $site_twitter;?>" id="input1" placeholder="Github URL">
                                             </div>
                                         </div>
 
@@ -134,14 +134,14 @@
                                         <div class="form-group">
                                             <label for="input1" class="col-sm-2 control-label">Instagram URL</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="instagram" class="form-control" value="<?php echo $site_instagram;?>" id="input1" placeholder="Linkedin URL">
+                                                <input type="text" name="instagram" class="form-control" value="<?php echo $site_instagram;?>" id="input1" placeholder="Instagram URL">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="input1" class="col-sm-2 control-label">Pinterest URL</label>
+                                            <label for="input1" class="col-sm-2 control-label">Youtube URL</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="pinterest" class="form-control" value="<?php echo $site_pinterest;?>" id="input1" placeholder="Linkedin URL">
+                                                <input type="text" name="pinterest" class="form-control" value="<?php echo $site_pinterest;?>" id="input1" placeholder="Youtube URL">
                                             </div>
                                         </div>
 

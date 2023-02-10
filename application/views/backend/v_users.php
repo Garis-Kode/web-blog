@@ -65,7 +65,7 @@
                                                 <th>Photo</th>
                                                 <th>Name</th>
                                                 <th>Username</th>
-                                                <th>Password</th>
+                                                <th>Deskripsi</th>
                                                 <th>Level</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -88,7 +88,7 @@
                                                 </td>
                                                 <td style="vertical-align: middle;"><?php echo $row->user_name;?></td>
                                                 <td style="vertical-align: middle;"><?php echo $row->user_email;?></td>
-                                                <td style="vertical-align: middle;"><?php echo $row->user_password;?></td>
+                                                <td style="vertical-align: middle;"><?php echo $row->user_description;?></td>
                                                 <td style="vertical-align: middle;">
                                                     <?php 
                                                         if($row->user_level=='1'){
