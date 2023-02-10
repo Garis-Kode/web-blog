@@ -116,14 +116,14 @@ class Blog extends CI_Controller {
     		$x['related_post']  = $this->blog_model->get_related_post($category_id,$kode);
     		$x['show_comments'] = $this->blog_model->show_comments($kode);
     		$site_info = $this->db->get('tbl_site', 1)->row();
-			$x['logo'] =  $site_info->site_logo_header;
-			$x['icon'] = $site_info->site_favicon;
+				$x['logo'] =  $site_info->site_logo_header;
+				$x['icon'] = $site_info->site_favicon;
     		$x['header'] = $this->load->view('header',$x,TRUE);
     		$x['footer'] = $this->load->view('footer',$x,TRUE);
     		$site = $this->site_model->get_site_data()->row_array();
-			$x['site_name'] = $site['site_name'];
-			$x['site_twitter'] = $site['site_twitter'];
-			$x['site_facebook'] = $site['site_facebook'];
+				$x['site_name'] = $site['site_name'];
+				$x['site_twitter'] = $site['site_twitter'];
+				$x['site_facebook'] = $site['site_facebook'];
     		$this->load->view('blog_detail_view',$x);
 		}else{
 		    redirect('blog');
