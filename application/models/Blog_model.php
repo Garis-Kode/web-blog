@@ -12,7 +12,7 @@ class Blog_model extends CI_Model{
 		$this->db->from('tbl_post');
 		$this->db->join('tbl_category', 'category_id=post_category_id','right');
 		$this->db->join('tbl_user', 'post_user_id=user_id','left');
-		$this->db->order_by('category_id', 'DESC');
+		$this->db->order_by('category_id', 'ASC');
 		$this->db->limit($limit,$offset);
 		$query = $this->db->get();
 		return $query;

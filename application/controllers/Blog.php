@@ -27,23 +27,7 @@ class Blog extends CI_Controller {
 	    $config['per_page'] = $limit;
 	    $config['uri_segment'] = 3;
 	    $config['use_page_numbers']=TRUE;
-
-	// 		<nav aria-label="..." class="">
-	// 		<ul class="pagination">
-	// 				<li class="page-item disabled shadow">
-	// 						<a class="page-link border-0 rounded-0">Previous</a>
-	// 				</li>
-	// 				<li class="page-item shadow"><a class="page-link border-0" href="#">1</a></li>
-	// 				<li class="page-item active shadow" aria-current="page">
-	// 						<a class="page-link border-0" href="#">2</a>
-	// 				</li>
-	// 				<li class="page-item shadow"><a class="page-link border-0" href="#">3</a></li>
-	// 				<li class="page-item shadow ">
-	// 						<a class="page-link border-0 rounded-0" href="#">Next</a>
-	// 				</li>
-	// 		</ul>
-	// </nav>
-
+			
 	    //Tambahan untuk styling
 			$config['full_tag_open'] = '<ul class="pagination fw-bold">';        
 			$config['full_tag_close'] = '</ul>';        

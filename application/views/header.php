@@ -53,8 +53,8 @@
                 <div class="col-lg-9 col-md-10">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="<?= base_url() ?>">Home</a></li>
-                            <li><a href="<?= base_url('blog') ?>">Blog</a>
+                            <li><a href="<?= base_url() ?>">Home</a></li>
+                            <li class="active"><a href="<?= base_url('blog') ?>">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="<?= base_url('blog') ?>">All</a></li>
                                     <?php foreach($getCategory->result() as $row):?>
