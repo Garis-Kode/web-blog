@@ -16,12 +16,18 @@ class Home extends CI_Controller {
 		$data['site_name'] = $site['site_name'];
 		$data['site_title'] = $site['site_title'];
 		$data['site_desc'] = $site['site_description'];
-		$data['site_twitter'] = $site['site_twitter'];
+		$data['site_github'] = $site['site_twitter'];
+		$data['site_forum'] = $site['site_facebook'];
+		$data['site_instagram'] = $site['site_instagram'];
+		$data['site_youtube'] = $site['site_pinterest'];
+		$data['site_linkedin'] = $site['site_linkedin'];
+
 		$data['site_image'] = $site['site_logo_big'];
 		$data['post_header'] = $this->home_model->get_post_header();
 		$data['post_header_2'] = $this->home_model->get_post_header_2();
 		$data['post_header_3'] = $this->home_model->get_post_header_3();
 		$data['latest_post'] = $this->home_model->get_latest_post();
+		// print_r($data['latest_post']);die();
 		$data['popular_post'] = $this->home_model->get_popular_post();
 		$home = $this->db->get('tbl_home',1)->row();
 		$data['caption_1'] = $home->home_caption_1;
@@ -30,10 +36,10 @@ class Home extends CI_Controller {
 		$data['bg_testimoni'] = $home->home_bg_testimonial;
 		$data['testimonial'] = $this->db->get('tbl_testimonial');
 		$site_info = $this->db->get('tbl_site', 1)->row();
-		$v['logo'] =  $site_info->site_logo_header;
+		$data['logo'] =  $site_info->site_logo_header;
 		$data['icon'] = $site_info->site_favicon;
-		$data['header'] = $this->load->view('header',$v,TRUE);
-		$data['footer'] = $this->load->view('footer','',TRUE);
+		$data['header_home'] = $this->load->view('header-home',$data,TRUE);
+		$data['footer'] = $this->load->view('footer', $data,TRUE);
 		$this->load->view('home_view',$data);
 	}
 

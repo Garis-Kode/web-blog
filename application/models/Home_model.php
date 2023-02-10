@@ -34,8 +34,9 @@ class Home_model extends CI_Model{
 	}
 
 	function get_latest_post(){
-		$this->db->select('tbl_post.*, user_name, user_photo');
+		$this->db->select('tbl_post.*, user_name, user_photo, category_name');
 		$this->db->from('tbl_post');
+		$this->db->join('tbl_category', 'category_id=post_category_id','right');
 		$this->db->join('tbl_user', 'post_user_id=user_id','left');
 		$this->db->order_by('post_id', 'DESC');
 		$this->db->limit(6);
