@@ -7,7 +7,9 @@ class Profile_model extends CI_Model{
 		return $query;
 	}
 
-	function change_profile_img($user_id, $ig, $in, $git, $desc, $user_photo){
+	function change_profile_img($user_id, $nama, $email, $ig, $in, $git, $desc, $user_photo){
+		$this->db->set('user_name', $nama);
+		$this->db->set('user_email', $email);
 		$this->db->set('user_instagram', $ig);
 		$this->db->set('user_linkedin', $in);
 		$this->db->set('user_github', $git);
@@ -17,7 +19,9 @@ class Profile_model extends CI_Model{
 		$this->db->update('tbl_user');
 	}
 
-	function change_profile_noimg($user_id, $ig, $in, $git, $desc){
+	function change_profile_noimg($user_id, $nama, $email,  $ig, $in, $git, $desc){
+		$this->db->set('user_name', $nama);
+		$this->db->set('user_email', $email);
 		$this->db->set('user_instagram', $ig);
 		$this->db->set('user_linkedin', $in);
 		$this->db->set('user_github', $git);

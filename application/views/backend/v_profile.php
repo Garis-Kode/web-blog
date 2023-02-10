@@ -78,6 +78,20 @@
                                         </div>
 
                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label">Nama</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="nama" value="<?= $getUser['user_name'] ?>" class="form-control"  placeholder="User Name">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-10">
+                                            <input type="text" name="email" value="<?= $getUser['user_email'] ?>" class="form-control"  placeholder="User Email">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label">Instagram</label>
                                             <div class="col-sm-10">
                                             <input type="text" name="ig" value="<?= $getUser['user_instagram'] ?>" class="form-control"  placeholder="Link Instagram User">

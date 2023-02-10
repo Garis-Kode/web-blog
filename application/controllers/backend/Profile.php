@@ -50,6 +50,8 @@ class Profile extends CI_Controller{
 
 	function setting(){
 		$user_id = $this->session->userdata('id');
+		$nama=htmlspecialchars($this->input->post('nama',TRUE),ENT_QUOTES);
+		$email=htmlspecialchars($this->input->post('email',TRUE),ENT_QUOTES);
 		$ig=htmlspecialchars($this->input->post('ig',TRUE),ENT_QUOTES);
 		$git=htmlspecialchars($this->input->post('git',TRUE),ENT_QUOTES);
 		$in=htmlspecialchars($this->input->post('in',TRUE),ENT_QUOTES);
@@ -75,7 +77,7 @@ class Profile extends CI_Controller{
 						$this->image_lib->resize();
 
 					$gambar=$gbr['file_name'];		
-					$this->profile_model->change_profile_img($user_id, $ig, $in, $git, $desc, $gambar);
+					$this->profile_model->change_profile_img($user_id, $nama, $email, $ig, $in, $git, $desc, $gambar);
 					echo $this->session->set_flashdata('msg','info');
 					redirect('backend/profile');
 				}else{
@@ -84,7 +86,7 @@ class Profile extends CI_Controller{
 				}
 							 
 			}else{
-				$this->profile_model->change_profile_noimg($user_id, $ig, $in, $git, $desc);
+				$this->profile_model->change_profile_noimg($user_id, $nama, $email, $ig, $in, $git, $desc);
 				echo $this->session->set_flashdata('msg','success-profil');
 				redirect('backend/profile');
 			}

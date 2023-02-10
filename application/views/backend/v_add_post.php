@@ -88,6 +88,7 @@
                                 <div class="panel-body">
                                         <div class="form-group">
                                             <label>Image</label>
+                                            <small class="text-right pull-right">(Ukuran Gambar 500 * 320 pixels)</small>
                                             <input type="file" name="filefoto" class="dropify" data-height="190" required>
                                         </div>
                                         <div class="form-group">
