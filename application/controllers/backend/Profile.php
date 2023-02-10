@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Change_pass extends CI_Controller{
+class Profile extends CI_Controller{
 	
 	function __construct(){
 		parent::__construct();
@@ -14,7 +14,7 @@ class Change_pass extends CI_Controller{
 	}
 
 	function index(){
-		$this->load->view('backend/v_change_pass');
+		$this->load->view('backend/v_profile');
 	}
 
 	function change(){
@@ -30,18 +30,18 @@ class Change_pass extends CI_Controller{
 				if($new_password == $conf_password){
 					$this->changepass_model->change_password($user_id,$new_pass);
 					$this->session->set_flashdata('msg','success');
-					redirect('backend/change_pass');
+					redirect('backend/profile');
 				}else{
 					$this->session->set_flashdata('msg','error-notmatch');
-					redirect('backend/change_pass');
+					redirect('backend/profile');
 				}
 			}else{
 				$this->session->set_flashdata('msg','error-notfound');
-				redirect('backend/change_pass');
+				redirect('backend/profile');
 			}
 		}else{
 			$this->session->set_flashdata('msg','error');
-			redirect('backend/change_pass');
+			redirect('backend/profile');
 		}
 	}
 }
