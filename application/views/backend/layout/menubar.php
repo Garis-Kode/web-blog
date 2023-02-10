@@ -121,16 +121,8 @@
                         <?php if($this->session->userdata('access')=='1'):?>
                         <li><a href="<?php echo site_url('backend/inbox');?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/subscriber');?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span><p>Subscribers</p></a></li>
-                        <li><a href="<?php echo site_url('backend/testimonial');?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span><p>Testimonials</p></a></li>
                         <li><a href="<?php echo site_url('backend/users');?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Users</p></a></li>
-                        <li class="droplink"><a href="<?php echo site_url('backend/settings');?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="<?php echo site_url('backend/settings');?>">Basic</a></li>
-                                <li><a href="<?php echo site_url('backend/home_setting');?>">Home</a></li>
-                                <li><a href="<?php echo site_url('backend/about_setting');?>">About</a></li>
-                                <li><a href="<?php echo site_url('backend/navbar');?>">Navbar</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="<?php echo site_url('backend/settings');?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p></a></li>
                         <?php else:?>
                         <?php endif;?>
                         <li><a href="<?php echo site_url('logout');?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span><p>Log Out</p></a></li>
