@@ -112,8 +112,14 @@ ol {
 /*---------------------
   Helper CSS
 -----------------------*/
+.text-blue{
+	color: #0d6efd;
+}
 .bg-blue{
 	background-color: #120851;
+}
+.bg-blue-link{
+	background-color: #0d6efd;
 }
 * a{
 	text-decoration: none;

@@ -6,7 +6,7 @@
             <span class="fa fa-times-circle-o"></span>
         </div>
         <div class="offcanvas__logo">
-            <a href="<?= base_url() ?>"><img src="<?php echo base_url().'static/images/'.$logo;?>" width="80" alt=""></a>
+            <a href="<?= base_url() ?>"><img src="<?php echo base_url().'theme/images/'.$logo;?>" width="80" alt=""></a>
         </div>
         <nav class="offcanvas__menu mobile-menu">
             <ul>
@@ -14,8 +14,9 @@
                 <li class="py-2"><a href="<?= base_url('blog') ?>">Blog</a>
                     <ul class="dropdown">
                         <li><a href="<?= base_url('blog') ?>">ALL</a></li>
-                        <li><a href="./blog-details.html">Forum</a></li>
-                        <li><a href="./404.html">404</a></li>
+                        <?php foreach($getCategory->result() as $row):?>
+                        <li><a href="<?= base_url('category/') ?><?= $row->category_slug ?>"><?= $row->category_name ?></a></li>
+                        <?php endforeach;?>
                     </ul>
                 </li>
                 <li class="py-2"><a href="<?= base_url('contact') ?>">Contact</a></li>
@@ -32,20 +33,21 @@
     <header class="header-section">
         <div class="container">
             <div class="row d-flex align-items-center">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-3 col-md-2">
                     <div class="header__logo">
                         <a href="<?= base_url() ?>"><img src="<?php echo base_url().'theme/images/'.$logo;?>" width="70" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-9">
+                <div class="col-lg-9 col-md-10">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="<?= base_url() ?>">Home</a></li>
                             <li><a href="<?= base_url('blog') ?>">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="<?= base_url('blog') ?>">All</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                    <li><a href="./404.html">404</a></li>
+                                    <?php foreach($getCategory->result() as $row):?>
+                                    <li><a href="<?= base_url('category/') ?><?= $row->category_slug ?>"><?= $row->category_name ?></a></li>
+                                    <?php endforeach;?>
                                 </ul>
                             </li>
                             <li><a href="<?= base_url('contact') ?>">Contact</a></li>

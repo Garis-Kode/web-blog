@@ -44,6 +44,13 @@ class Home_model extends CI_Model{
 		return $query;
 	}
 
+	function get_category(){
+		$this->db->select('*');
+		$this->db->from('tbl_category');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	function get_popular_post(){
 		$this->db->select('tbl_post.*, user_name');
 		$this->db->from('tbl_post');

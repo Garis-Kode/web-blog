@@ -65,11 +65,14 @@
 		 <section class="blog-section spad bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div >
+                <div class="col-lg-12 d-flex justify-content-between">
+                    <div>
                         <h4 class="mb-2 fw-bold">Artikel Terbaru</h4>
                         <p class="mb-5">Baca Tutorial coding menarik disini</p>
                     </div>
+										<div class="d-none d-md-block">
+											<a href="<?= base_url('blog') ?>" class="fw-bold text-blue"><span class="text-blue">Read More</span></a>
+										</div>
                 </div>
             </div>
             <div class="row">
@@ -98,8 +101,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 mt-5">
-                    <nav aria-label="..." class="">
+                <div class="col-12 mt-5 text-center">
+								<a href="<?= base_url('blog') ?>" class="btn btn-primary fw-bold rounded-pill py-2 px-5 bg-blue-link border-0 shadow">Read More</a>
+
+                    <!-- <nav aria-label="..." class="">
                         <ul class="pagination">
                             <li class="page-item disabled shadow">
                                 <a class="page-link border-0 rounded-0">Previous</a>
@@ -113,7 +118,7 @@
                                 <a class="page-link border-0 rounded-0" href="#">Next</a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
         </div>
