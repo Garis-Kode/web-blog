@@ -104,22 +104,6 @@
             <div class="row">
                 <div class="col-12 mt-5 text-center">
 								<a href="<?= base_url('blog') ?>" class="btn btn-primary fw-bold rounded-pill py-2 px-5 bg-blue-link border-0 shadow">Read More</a>
-
-                    <!-- <nav aria-label="..." class="">
-                        <ul class="pagination">
-                            <li class="page-item disabled shadow">
-                                <a class="page-link border-0 rounded-0">Previous</a>
-                            </li>
-                            <li class="page-item shadow"><a class="page-link border-0" href="#">1</a></li>
-                            <li class="page-item active shadow" aria-current="page">
-                                <a class="page-link border-0" href="#">2</a>
-                            </li>
-                            <li class="page-item shadow"><a class="page-link border-0" href="#">3</a></li>
-                            <li class="page-item shadow ">
-                                <a class="page-link border-0 rounded-0" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav> -->
                 </div>
             </div>
         </div>
@@ -131,7 +115,7 @@
 
 		<!-- Js Plugins -->
     <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
-    <script src="<?= base_url('static/') ?>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
     <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>
     <script src="<?= base_url('static/') ?>js/main.js"></script>

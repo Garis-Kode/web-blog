@@ -91,12 +91,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <div class="input-group">
-                        <form action="<?php echo site_url('search');?>" method="GET">
+                        <form class="input-group" action="<?php echo site_url('search');?>" method="GET">
                             <input type="text" name="search_query" class="form-control border border-primary form-lg" placeholder="Ketik Apa Saja ...">
                             <button class="btn btn-primary bg-blue" type="submit" id="button-addon2">Search</button>
                         </form>
-                        </div>
                     </div>  
                 </div>
             </div>

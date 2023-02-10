@@ -111,7 +111,7 @@
 			
 		<!-- Js Plugins -->
     <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
-    <script src="<?= base_url('static/') ?>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
     <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>
     <script src="<?= base_url('static/') ?>js/main.js"></script>
