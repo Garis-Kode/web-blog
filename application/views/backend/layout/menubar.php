@@ -1,3 +1,4 @@
+
 <div class="navbar">
                 <div class="navbar-inner">
                     <div class="sidebar-pusher">
@@ -107,7 +108,8 @@
             <div class="page-sidebar sidebar">
                 <div class="page-sidebar-inner slimscroll">
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="<?php echo site_url('backend/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
+
+                        <li><a href="<?php echo site_url('backend/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/post/add_new');?>">Add New</a></li>

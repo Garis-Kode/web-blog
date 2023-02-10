@@ -299,9 +299,9 @@
                         </div>
                     </div>
                 </div><!-- Main Wrapper -->
-                <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y');?> &copy; Powered by M Fikri Setiadi.</p>
-                </div>
+                <?php
+                    $this->load->view('backend/layout/footer.php');
+                ?>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
         <div class="cd-overlay"></div>
