@@ -8,6 +8,9 @@ class Testimonial extends CI_Controller{
             $url=base_url('administrator');
             redirect($url);
         };
+				if($this->session->userdata('role') != 1){
+					redirect('backend/dashboard');
+				}
 		$this->load->model('backend/Testimonial_model','testimonial_model');
 		$this->load->library('upload');
 		$this->load->helper('text');

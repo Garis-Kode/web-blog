@@ -9,6 +9,9 @@ class Inbox extends CI_Controller{
             $url=base_url('administrator');
             redirect($url);
         };
+				if($this->session->userdata('role') != 1){
+					redirect('backend/dashboard');
+				}
 		$this->load->model('backend/Inbox_model','inbox_model');
 		error_reporting(0);
 		$this->load->helper('text');

@@ -8,6 +8,9 @@ class Navbar extends CI_Controller{
             $url=base_url('administrator');
             redirect($url);
         };
+				if($this->session->userdata('role') != 1){
+					redirect('backend/dashboard');
+				}
 		$this->load->model('backend/Navbar_model','navbar_model');
 		$this->load->helper('text');
 	}

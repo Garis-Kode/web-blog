@@ -33,7 +33,7 @@ class Visitor_model extends CI_Model{
     }
 
     function top_five_articles(){
-    	$query = $this->db->query("SELECT * FROM tbl_post ORDER BY post_views DESC LIMIT 5");
+    	$query = $this->db->query("SELECT * FROM tbl_post JOIN tbl_user ON user_id=post_user_id ORDER BY post_views DESC LIMIT 5");
     	return $query;
     }
 

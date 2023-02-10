@@ -103,6 +103,9 @@ class Comment extends CI_Controller{
 	}
 
 	function publish(){
+		if($this->session->userdata('role') != 1){
+			redirect('backend/dashboard');
+		}
 		$comment_id = htmlspecialchars($this->input->post('comment_id4',TRUE),ENT_QUOTES);
 		$this->comment_model->publish_comment($comment_id);
 		$this->session->set_flashdata('msg','success-publish');
@@ -110,6 +113,9 @@ class Comment extends CI_Controller{
 	}
 
 	function edit(){
+		if($this->session->userdata('role') != 1){
+			redirect('backend/dashboard');
+		}
 		$comment_id = htmlspecialchars($this->input->post('comment_id2',TRUE),ENT_QUOTES);
 		$comments = $this->input->post('comments2',TRUE);
 		$this->comment_model->edit_comment($comment_id,$comments);
@@ -118,6 +124,9 @@ class Comment extends CI_Controller{
 	}
 
 	function delete(){
+		if($this->session->userdata('role') != 1){
+			redirect('backend/dashboard');
+		}
 		$comment_id = htmlspecialchars($this->input->post('comment_id3',TRUE),ENT_QUOTES);
 		$this->comment_model->delete_comment($comment_id);
 		$this->session->set_flashdata('msg','success-delete');

@@ -8,9 +8,13 @@ class Dashboard extends CI_Controller{
             redirect($url);
         };
 		$this->load->model('backend/Visitor_model', 'visitor_model');
+		$this->load->model('backend/Dashboard_model', 'dashboard_model');
+
 		$this->load->helper('text');
 	}
 	function index(){
+		$data['author_post'] = $this->dashboard_model->author_post();
+// print_r($x);die();
 		$visitor = $this->visitor_model->visitor_statistics();
 		foreach($visitor as $result){
             $bulan[] = $result->tgl; 
@@ -23,6 +27,11 @@ class Dashboard extends CI_Controller{
 		$data['all_posts'] = $this->visitor_model->count_all_posts();
 		$data['all_comments'] = $this->visitor_model->count_all_comments();
 		$data['top_five_articles'] = $this->visitor_model->top_five_articles();
+
+		$data['my_posts'] = $this->dashboard_model->count_my_posts()->num_rows();
+		$data['my_article'] = $this->dashboard_model->my_article($this->session->userdata('id'));
+		// print_r($data['my_article']);die();
+
 		
 		$monthly_visitors = $this->visitor_model->count_visitor_this_month();
 		if($monthly_visitors->num_rows() > 0){

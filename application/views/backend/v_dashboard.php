@@ -34,7 +34,7 @@
         
         
     </head>
-    <body class="page-header-fixed compact-menu pace-done page-sidebar-fixed">
+    <body class="page-header-fixed compact-menu pace-done page-sidebar-fixed small-sidebar">
         <div class="overlay"></div>
         <main class="page-content content-wrap">
             <div class="navbar">
@@ -45,19 +45,15 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="<?php echo site_url('backend/dashboard');?>" class="logo-text"><span>MEMBER</span></a>
+                        <a href="<?php echo site_url('backend/dashboard');?>" class="logo-text"><img src="<?php echo site_url('assets/images/logo.png');?>" width="35" alt=""></a>
                     </div><!-- Logo Box -->
                     <div class="topmenu-outer">
                         <div class="top-menu">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li>		
-                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
-                                </li>
-                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <?php 
                                     $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
                                 ?>
+                                <?php if($this->session->userdata('access')=='1'):?>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows();?></span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -84,6 +80,7 @@
                                         <li class="drop-all"><a href="<?php echo site_url('backend/inbox');?>" class="text-center">All Messages</a></li>
                                     </ul>
                                 </li>
+                                <?php endif;?>
                                 <?php
                                     $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
                                 ?>
@@ -146,46 +143,6 @@
             </div><!-- Navbar -->
             <div class="page-sidebar sidebar">
                 <div class="page-sidebar-inner slimscroll">
-                    <div class="sidebar-header">
-                        <div class="sidebar-profile">
-                            <?php
-                                $user_id=$this->session->userdata('id');
-                                $query=$this->db->get_where('tbl_user', array('user_id' => $user_id));
-                                if($query->num_rows() > 0):
-                                $row = $query->row_array();
-                            ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url().'assets/images/'.$row['user_photo'];?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name');?><br>
-                                    <?php if($row['user_level']=='1'):?>
-                                    <small>Administrator</small>
-                                    <?php else:?>
-                                    <small>Author</small>
-                                    <?php endif;?>
-                                </span>
-                                </div>
-                            </a>
-                            <?php else:?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url().'assets/images/user_blank.png';?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name');?><br>
-                                    <?php if($row['user_level']=='1'):?>
-                                    <small>Administrator</small>
-                                    <?php else:?>
-                                    <small>Author</small>
-                                    <?php endif;?>
-                                </span>
-                                </div>
-                            </a>
-                            <?php endif;?>
-                        </div>
-                    </div>
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="<?php echo site_url('backend/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
@@ -196,11 +153,11 @@
                                 <li><a href="<?php echo site_url('backend/tag');?>">Tag</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo site_url('backend/inbox');?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/comment');?>" class="waves-effect waves-button"><span class="menu-icon icon-bubbles"></span><p>Comments</p></a></li>
+                        <?php if($this->session->userdata('access')=='1'):?>
+                        <li><a href="<?php echo site_url('backend/inbox');?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/subscriber');?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span><p>Subscribers</p></a></li>
                         <li><a href="<?php echo site_url('backend/testimonial');?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span><p>Testimonials</p></a></li>
-                        <?php if($this->session->userdata('access')=='1'):?>
                         <li><a href="<?php echo site_url('backend/users');?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Users</p></a></li>
                         <li class="droplink"><a href="<?php echo site_url('backend/settings');?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
@@ -228,6 +185,7 @@
                     </div>
                 </div>
                 <div id="main-wrapper">
+                    <?php if($this->session->userdata('access')=='1'):?>
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="panel info-box panel-white">
@@ -307,68 +265,103 @@
                         </div>
                     </div><!-- Row -->
                     <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="panel panel-white">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="visitors-chart">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">Visitors This Month</h4>
+                        <div class="col-lg-9 col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-white">
+                                        <div class="row">
+                                            <div class="col-sm-9">
+                                                <div class="visitors-chart">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">Visitors This Month</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="col-md-12">
+                                                            <canvas id="canvas"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="panel-body">
-                                                <div class="col-md-12">
-                                                    <canvas id="canvas"></canvas>
+                                            <div class="col-sm-3">
+                                                <div class="stats-info">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">Browser Stats</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <ul class="list-unstyled">
+                                                            <li>Google Chrome<div class="text-success pull-right"><?php echo number_format($chrome_visitor,2);?>%</div></li>
+                                                            <li>Firefox<div class="text-success pull-right"><?php echo number_format($firefox_visitor,2);?>%</div></li>
+                                                            <li>Internet Explorer<div class="text-success pull-right"><?php echo number_format($explorer_visitor,2);?>%</div></li>
+                                                            <li>Safari<div class="text-success pull-right"><?php echo number_format($safari_visitor,2);?>%</div></li>
+                                                            <li>Opera<div class="text-success pull-right"><?php echo number_format($opera_visitor,2);?>%</div></li>
+                                                            <li>Robots<div class="text-success pull-right"><?php echo number_format($robot_visitor,2);?>%</div></li>
+                                                            <li>Others<div class="text-success pull-right"><?php echo number_format($other_visitor,2);?>%</div></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="stats-info">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title">Browser Stats</h4>
-                                            </div>
-                                            <div class="panel-body">
-                                                <ul class="list-unstyled">
-                                                    <li>Google Chrome<div class="text-success pull-right"><?php echo number_format($chrome_visitor,2);?>%</div></li>
-                                                    <li>Firefox<div class="text-success pull-right"><?php echo number_format($firefox_visitor,2);?>%</div></li>
-                                                    <li>Internet Explorer<div class="text-success pull-right"><?php echo number_format($explorer_visitor,2);?>%</div></li>
-                                                    <li>Safari<div class="text-success pull-right"><?php echo number_format($safari_visitor,2);?>%</div></li>
-                                                    <li>Opera<div class="text-success pull-right"><?php echo number_format($opera_visitor,2);?>%</div></li>
-                                                    <li>Robots<div class="text-success pull-right"><?php echo number_format($robot_visitor,2);?>%</div></li>
-                                                    <li>Others<div class="text-success pull-right"><?php echo number_format($other_visitor,2);?>%</div></li>
-                                                </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Top 5 Articles</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive project-stats">  
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Post Title</th>
+                                                        <th>Author</th>
+                                                        <th style="text-align: right;">Views</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        $no=0;
+                                                        foreach ($top_five_articles->result() as $row) :
+                                                            $no++;
+                                                    ?>
+                                                    <tr>
+                                                        <th scope="row"><?php echo $no;?></th>
+                                                        <td><?php echo $row->post_title;?></td>
+                                                        <td><?php echo $row->user_name;?></td>
+                                                        <td style="text-align: right;"><?php echo number_format($row->post_views);?></td>
+                                                    </tr>
+                                                    <?php endforeach;?>
+                                                </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-12 col-md-12">
+                        <div class="col-lg-3 col-md-12">
                             <div class="panel panel-white">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title">Top 5 Articles</h4>
+                                    <h4 class="panel-title">Top Author</h4>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive project-stats">  
                                        <table class="table">
                                            <thead>
                                                <tr>
-                                                   <th>#</th>
-                                                   <th>Post Title</th>
-                                                   <th style="text-align: right;">Views</th>
+                                                   <th>Author</th>
+                                                   <th style="text-align: right;">count</th>
                                                </tr>
                                            </thead>
                                            <tbody>
                                             <?php
                                                 $no=0;
-                                                foreach ($top_five_articles->result() as $row) :
-                                                    $no++;
+                                                foreach ($author_post->result() as $row) :
                                             ?>
                                                <tr>
-                                                   <th scope="row"><?php echo $no;?></th>
-                                                   <td><?php echo $row->post_title;?></td>
-                                                   <td style="text-align: right;"><?php echo number_format($row->post_views);?></td>
+                                                   <td><?php echo $row->user_name;?></td>
+                                                   <td style="text-align: right;"><?php echo number_format($row->posting);?></td>
                                                </tr>
                                             <?php endforeach;?>
                                            </tbody>
@@ -376,6 +369,65 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <?php endif;?>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel info-box panel-white">
+                                        <div class="panel-body">
+                                            <div class="info-box-stats">
+                                                <p><span class="counter"><?php echo number_format($my_posts);?></span></p>
+                                                <span class="info-box-title">My Posts</span>
+                                            </div>
+                                            <div class="info-box-icon">
+                                                <i class="icon-pencil"></i>
+                                            </div>
+                                            <div class="info-box-progress">
+                                                <div class="progress progress-xs progress-squared bs-n">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-12">
+                                    <div class="panel panel-white">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">My Articles</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="table-responsive project-stats">  
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Post Title</th>
+                                                        <th style="text-align: center;">Views</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        $no=0;
+                                                        foreach ($my_article->result() as $row) :
+                                                            $no++;
+                                                    ?>
+                                                    <tr>
+                                                        <th scope="row"><?php echo $no;?></th>
+                                                        <td><?php echo $row->post_title;?></td>
+                                                        <td style="text-align: center;"><?php echo number_format($row->post_views);?></td>
+                                                    </tr>
+                                                    <?php endforeach;?>
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div><!-- Main Wrapper -->

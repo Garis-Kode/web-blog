@@ -36,10 +36,10 @@
 
         
     </head>
-    <body class="page-header-fixed compact-menu pace-done page-sidebar-fixed">
+    <body class="page-header-fixed compact-menu pace-done page-sidebar-fixed small-sidebar">
         <div class="overlay"></div>
         <main class="page-content content-wrap">
-            <div class="navbar">
+        <div class="navbar">
                 <div class="navbar-inner">
                     <div class="sidebar-pusher">
                         <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
@@ -47,19 +47,15 @@
                         </a>
                     </div>
                     <div class="logo-box">
-                        <a href="<?php echo site_url('backend/dashboard');?>" class="logo-text"><span>MBLOG</span></a>
+                        <a href="<?php echo site_url('backend/dashboard');?>" class="logo-text"><img src="<?php echo site_url('assets/images/logo.png');?>" width="35" alt=""></a>
                     </div><!-- Logo Box -->
                     <div class="topmenu-outer">
                         <div class="top-menu">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li>        
-                                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
-                                </li>
-                            </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <?php 
                                     $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
                                 ?>
+                                <?php if($this->session->userdata('access')=='1'):?>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows();?></span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -86,6 +82,7 @@
                                         <li class="drop-all"><a href="<?php echo site_url('backend/inbox');?>" class="text-center">All Messages</a></li>
                                     </ul>
                                 </li>
+                                <?php endif;?>
                                 <?php
                                     $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
                                 ?>
@@ -148,48 +145,8 @@
             </div><!-- Navbar -->
             <div class="page-sidebar sidebar">
                 <div class="page-sidebar-inner slimscroll">
-                    <div class="sidebar-header">
-                        <div class="sidebar-profile">
-                            <?php
-                                $user_id=$this->session->userdata('id');
-                                $query=$this->db->get_where('tbl_user', array('user_id' => $user_id));
-                                if($query->num_rows() > 0):
-                                $row = $query->row_array();
-                            ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url().'assets/images/'.$row['user_photo'];?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name');?><br>
-                                    <?php if($row['user_level']=='1'):?>
-                                    <small>Administrator</small>
-                                    <?php else:?>
-                                    <small>Author</small>
-                                    <?php endif;?>
-                                </span>
-                                </div>
-                            </a>
-                            <?php else:?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url().'assets/images/user_blank.png';?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name');?><br>
-                                    <?php if($row['user_level']=='1'):?>
-                                    <small>Administrator</small>
-                                    <?php else:?>
-                                    <small>Author</small>
-                                    <?php endif;?>
-                                </span>
-                                </div>
-                            </a>
-                            <?php endif;?>
-                        </div>
-                    </div>
                     <ul class="menu accordion-menu">
-                        <li><a href="<?php echo site_url('backend/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
+                        <li class="active"><a href="<?php echo site_url('backend/dashboard');?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/post/add_new');?>">Add New</a></li>
@@ -198,11 +155,11 @@
                                 <li><a href="<?php echo site_url('backend/tag');?>">Tag</a></li>
                             </ul>
                         </li>
-                        <li class="active"><a href="<?php echo site_url('backend/inbox');?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/comment');?>" class="waves-effect waves-button"><span class="menu-icon icon-bubbles"></span><p>Comments</p></a></li>
+                        <?php if($this->session->userdata('access')=='1'):?>
+                        <li><a href="<?php echo site_url('backend/inbox');?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/subscriber');?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span><p>Subscribers</p></a></li>
                         <li><a href="<?php echo site_url('backend/testimonial');?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span><p>Testimonials</p></a></li>
-                        <?php if($this->session->userdata('access')=='1'):?>
                         <li><a href="<?php echo site_url('backend/users');?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Users</p></a></li>
                         <li class="droplink"><a href="<?php echo site_url('backend/settings');?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
