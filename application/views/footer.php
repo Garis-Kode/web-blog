@@ -1,3 +1,15 @@
+<?php
+ $site = $this->db->get('tbl_site')->row_array();
+ // print_r($site);die();
+ $site_name= $site['site_name'];
+ $site_title= $site['site_title'];
+ $site_desc= $site['site_description'];
+ $site_github= $site['site_twitter'];
+ $site_forum= $site['site_facebook'];
+ $site_instagram= $site['site_instagram'];
+ $site_youtube= $site['site_pinterest'];
+ $site_linkedin= $site['site_linkedin'];
+?>
 <section class="services-section spad">
         <div class="container">
             <div class="row">

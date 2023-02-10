@@ -8,10 +8,11 @@ class Blog_model extends CI_Model{
 	}
 
 	function get_blog_perpage($offset,$limit){
-		$this->db->select('tbl_post.*, user_name,user_photo');
+		$this->db->select('tbl_post.*, user_name,user_photo, category_name');
 		$this->db->from('tbl_post');
+		$this->db->join('tbl_category', 'category_id=post_category_id','right');
 		$this->db->join('tbl_user', 'post_user_id=user_id','left');
-		$this->db->order_by('post_id', 'DESC');
+		$this->db->order_by('category_id', 'DESC');
 		$this->db->limit($limit,$offset);
 		$query = $this->db->get();
 		return $query;

@@ -8,6 +8,7 @@
 		<!-- SEO Tag -->
 			<meta http-equiv="X-UA-Compatible" content="ie=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="shortcut icon" href="<?php echo base_url('theme/images/'.$icon);?>">
 			<meta name="description" content="<?php echo $site_desc;?>"/>
 	    <link rel="canonical" href="<?php echo site_url();?>" />
 	    <meta property="og:locale" content="id_ID" />
@@ -67,8 +68,8 @@
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-between">
                     <div>
-                        <h4 class="mb-2 fw-bold">Artikel Terbaru</h4>
-                        <p class="mb-5">Baca Tutorial coding menarik disini</p>
+                        <h4 class="mb-2 fw-bold">Tulisan Terbaru</h4>
+                        <p class="mb-5">Baca Tips & Trick Coding Yang Menarik Disini</p>
                     </div>
 										<div class="d-none d-md-block">
 											<a href="<?= base_url('blog') ?>" class="fw-bold text-blue"><span class="text-blue">Read More</span></a>

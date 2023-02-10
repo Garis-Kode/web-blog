@@ -28,26 +28,42 @@ class Blog extends CI_Controller {
 	    $config['uri_segment'] = 3;
 	    $config['use_page_numbers']=TRUE;
 
-	    //Tambahan untuk styling
-        $config['full_tag_open']    = '<div class="row"><nav class="page-pagination mt-60"><ul class="page-numbers">';
-        $config['full_tag_close']   = '</ul></nav></div>';
-        $config['num_tag_open']     = '<li><span class="page-numbers">';
-        $config['num_tag_close']    = '</span></li>';
-        $config['cur_tag_open']     = '<li><span class="page-numbers current">';
-        $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-        $config['next_tag_open']    = '<li><span class="page-numbers">';
-        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-        $config['prev_tag_open']    = '<li><span class="page-numbers">';
-        $config['prev_tagl_close']  = '</span>Next</li>';
-        $config['first_tag_open']   = '<li><span class="page-numbers">';
-        $config['first_tagl_close'] = '</span></li>';
-        $config['last_tag_open']    = '<li><span class="page-numbers">';
-        $config['last_tagl_close']  = '</span></li>';
+	// 		<nav aria-label="..." class="">
+	// 		<ul class="pagination">
+	// 				<li class="page-item disabled shadow">
+	// 						<a class="page-link border-0 rounded-0">Previous</a>
+	// 				</li>
+	// 				<li class="page-item shadow"><a class="page-link border-0" href="#">1</a></li>
+	// 				<li class="page-item active shadow" aria-current="page">
+	// 						<a class="page-link border-0" href="#">2</a>
+	// 				</li>
+	// 				<li class="page-item shadow"><a class="page-link border-0" href="#">3</a></li>
+	// 				<li class="page-item shadow ">
+	// 						<a class="page-link border-0 rounded-0" href="#">Next</a>
+	// 				</li>
+	// 		</ul>
+	// </nav>
 
-	    $config['first_link'] = '<';
-	    $config['last_link'] = '>';
-	    $config['next_link'] = '>>';
-	    $config['prev_link'] = '<<';
+	    //Tambahan untuk styling
+			$config['full_tag_open'] = '<ul class="pagination fw-bold">';        
+			$config['full_tag_close'] = '</ul>';        
+			$config['first_link'] = 'First';        
+			$config['last_link'] = 'Last';        
+			$config['first_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><span class="page-link border-0 rounded-0 text-blue">';        
+			$config['first_tag_close'] = '</span></li>';        
+			$config['prev_link'] = '<i class="bi bi-arrow-left-short"></i> Prev';        
+			$config['prev_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><span class="page-link border-0 rounded-0 text-blue">';        
+			$config['prev_tag_close'] = '</span></li>';        
+			$config['next_link'] = 'Next <i class="bi bi-arrow-right-short"></i>';        
+			$config['next_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><span class="page-link border-0 rounded-0 text-blue">';        
+			$config['next_tag_close'] = '</span></li>';        
+			$config['last_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><span class="page-link border-0 rounded-0 text-blue">';        
+			$config['last_tag_close'] = '</span></li>';        
+			$config['cur_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><a class="page-link bg-blue text-white " href="#">';        
+			$config['cur_tag_close'] = '</a></li>';        
+			$config['num_tag_open'] = '<li class="page-item shadow border-0 rounded-0"><span class="page-link border-0 rounded-0 text-blue">';        
+			$config['num_tag_close'] = '</span></li>';
+
 	    $this->pagination->initialize($config);
 	    $x['page'] =$this->pagination->create_links();
 		$x['data']=$this->blog_model->get_blog_perpage($offset,$limit);
@@ -75,7 +91,7 @@ class Blog extends CI_Controller {
 		$x['url_next']=site_url('blog/page/'.$next_page);
 		$x['populer_post'] = $this->blog_model->get_popular_post();
 		$site_info = $this->db->get('tbl_site', 1)->row();
-		$v['logo'] =  $site_info->site_logo_header;
+		$x['logo'] =  $site_info->site_logo_header;
 		$x['icon'] = $site_info->site_favicon;
 		$x['site_image'] = $site_info->site_logo_big;
 		$x['header'] = $this->load->view('header',$v,TRUE);
@@ -116,10 +132,10 @@ class Blog extends CI_Controller {
     		$x['related_post']  = $this->blog_model->get_related_post($category_id,$kode);
     		$x['show_comments'] = $this->blog_model->show_comments($kode);
     		$site_info = $this->db->get('tbl_site', 1)->row();
-			$v['logo'] =  $site_info->site_logo_header;
+			$x['logo'] =  $site_info->site_logo_header;
 			$x['icon'] = $site_info->site_favicon;
-    		$x['header'] = $this->load->view('header',$v,TRUE);
-    		$x['footer'] = $this->load->view('footer','',TRUE);
+    		$x['header'] = $this->load->view('header',$x,TRUE);
+    		$x['footer'] = $this->load->view('footer',$x,TRUE);
     		$site = $this->site_model->get_site_data()->row_array();
 			$x['site_name'] = $site['site_name'];
 			$x['site_twitter'] = $site['site_twitter'];

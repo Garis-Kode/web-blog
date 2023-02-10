@@ -3,7 +3,7 @@
 	<head>
 		<title><?php echo $judul;?></title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href="<?php echo base_url('theme/images/'.$icon);?>">
 		<!-- SEO Tags -->
@@ -27,148 +27,92 @@
 	    <meta name="twitter:card" content="summary_large_image" />
 	    <meta name="twitter:description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..." />
 	    <meta name="twitter:title" content="<?php echo $judul;?>" />
-	    <meta name="twitter:site" content="<?php echo $site_twitter;?>" />
 	    <meta name="twitter:image" content="<?php echo base_url().'theme/images/'.$site_image?>" />
 	    <!-- / SEO plugin. -->
-		<!-- CSS -->
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/bootstrap.min.css'?>"/>
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/style.css'?>"/>
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/padding-margin.css'?>"/>
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/font-awesome.min.css'?>"/>
-		<!-- Favicons -->		
+		<!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/style.css" type="text/css">
 	</head>
-	<body class="content-animate">
 
-		<!-- PRELOADER
-		==================================================-->	
-		<div class="page-loader">
-			<div class="loader-area"></div><div class="loader font-face1">Loading...		
-			</div>
-		</div>
-		
-		<!-- PAGE
-		==================================================-->	
-		<div id="top" class="page">
+	<body>
+    <!-- Page Preloder -->
+
+
+		<?php echo $header;?>
+
+		<div class="breadcrumb-section ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option my-1">
+                        <a href="<?= base_url(); ?>"><span class="fa fa-home"></span> Home</a>
+												<span><?= $this->uri->segment(1); ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Blog Section Begin -->
+<section class="blog-section spad bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                        <h4 class="mb-2 fw-bold">Semua Tulisan</h4>
+                        <p class="mb-5">Baca Tips & Trick Coding Yang Menarik Disini</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+												<?php foreach($data->result() as $row):?>
+                        <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="card rounded-4 shadow-sm border-0">
+                                <div class="card-body">
+                                    <div class="blog__item">
+                                        <div class="blog__pic set-bg rounded-4" data-setbg="<?php echo base_url().'assets/images/thumb/'.$row->post_image?>">
+                                            <div class="label shadow-sm"><?php echo $row->category_name;?></div>
+                                        </div>
+                                        <div class="blog__text">
+                                            <h5><a href="<?php echo site_url('blog/'.$row->post_slug);?>"><?php echo $row->post_title;?></a></h5>
+                                            <ul class="mt-4">
+                                                <li><img src="<?php echo base_url().'assets/images/'.$row->user_photo;?>" class="rounded-pill me-3" width="30" height="30" alt=""> <?php echo $row->user_name;?></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+												<?php endforeach;?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-5 text-center">
+									<?= $page ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+		<?php echo $footer;?>
 			
-			<!-- Navigation panel
-			================================================== -->		
-			<?php echo $header;?>
-			<!-- End Navigation panel -->
-		
-			<!-- Main Content
-			==================================================-->		
-			<main class="cd-main-content mt-100">
-
-				
-				<!-- SECTION ABOUT
-				================================================== 	-->	
-				<section class="page-section small-section">				
-					<div class="container relative">
-						
-						<div class="row multi-columns-row">
-							
-								<?php foreach ($data->result() as $row):?>					
-								<div class="col-md-4 col-sm-6 mb-30 wow fadeIn">
-									<article>
-										<a class="articles-card" href="<?php echo site_url('blog/'.$row->post_slug);?>" title="">
-											<div class="card-wrap">
-												<div class="card-image">
-													<div class="article-thumbnail" data-background="<?php echo base_url().'assets/images/thumb/'.$row->post_image;?>"></div>				
-												</div>
-												<div class="card-body text-right">
-													<h2 class="heading6 lp-0 mt-0 font-face1 text-right"><?php echo $row->post_title;?></h2>
-												</div>
-												<div class="card-footer">
-													<div class="article_author">
-														<div class="portrait" data-background="<?php echo base_url().'assets/images/'.$row->user_photo;?>"></div>
-														<div class="author light-text"><?php echo $row->user_name;?></div>
-														<div class="date"><?php echo date('d M Y',strtotime($row->post_date));?></div>
-													</div>												
-												</div>
-											</div>
-										</a>
-										<div class="like light-text"><a href="javascript:void(0)"></a> <?php echo $row->post_views.' views';?></div>
-									</article>
-								</div>
-								<?php endforeach;?>
-								
-						</div>
-						<!--pagination-->
-						<?php echo $page;?>
-					</div>					
-				</section>								
-				
-				<!-- SECTION SUBSCRIBE
-				================================================== -->
-				<section  class="page-section subscribe-section small-section">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-10 col-md-offset-1">	
-								<div class="form-subscribe mb-50 mb-sm-0">
-									<div class="col-sm-6 mb-sm-40">
-										<h2 class="heading5 mt-0 font-face1 white-color fw700 mb-0" >Newsletter.</h2>
-									</div>
-									<div class="col-sm-6">										
-										<form class="form-inline" action="<?php echo site_url('subscribe');?>" method="post">
-											<div class="form-group">
-												<input type="hidden" name="url" value="<?php echo $canonical;?>" required>
-												<input type="email" name="email" required placeholder="Your Email..." class="form-control">
-												<button type="submit" class="btn btn-subscribe">Subscribe</button>
-											</div>
-										</form>										
-									</div>
-								</div>
-								<div><?php echo $this->session->flashdata('message');?></div>									
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				
-				<!-- FOOTER
-				================================================== -->	
-				<?php echo $footer;?>
-				
-				</main>		
-	
-		</div>
-
-
-		<!-- Modal Search-->
-		<div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10000;">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-body">	
-		      	<form action="<?php echo site_url('search');?>" method="GET">
-		        	<div class="input-group">
-		              <input type="text" name="search_query" class="form-control input-search" style="height: 40px;" placeholder="Search..." required>
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="submit" style="height: 40px;background-color: #ccc;"><span class="fa fa-search"></span></button>
-				      </span>
-				    </div>
-				</form>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-			
-		<script src="<?php echo base_url().'theme/js/jquery-2.2.4.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.easing.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/bootstrap.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/waypoints.min.js'?>"></script>			
-		<script src="<?php echo base_url().'theme/js/jquery.scrollTo.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.localScroll.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.viewport.mini.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.sticky.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.fitvids.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.parallax-1.1.3.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/isotope.pkgd.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/imagesloaded.pkgd.min.js'?>"></script> 
-		<script src="<?php echo base_url().'theme/js/masonry.pkgd.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.magnific-popup.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/jquery.counterup.min.js'?>"></script>					
-		<script src="<?php echo base_url().'theme/js/slick.min.js'?>"></script>
-		<script src="<?php echo base_url().'theme/js/wow.min.js'?>"></script>		
-		<script src="<?php echo base_url().'theme/js/script.js'?>"></script>	
-	</body>
+		<!-- Js Plugins -->
+    <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
+    <script src="<?= base_url('static/') ?>https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
+    <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>
+    <script src="<?= base_url('static/') ?>js/main.js"></script>
+</body>
 </html>
