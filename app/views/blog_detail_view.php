@@ -205,6 +205,7 @@
                                     <p class="text-primary fw-medium"><i class="bi bi-pencil-square"></i> Tulis Komentar</p>
                                 </a>
                             </div>
+														<?php echo $this->session->flashdata('msg');?>
                             <div class="blog__details__comment__list">
 															<?php foreach ($show_comments->result() as $row):?>
                                 <div class="blog__details__comment__item">
@@ -255,26 +256,28 @@
 				<div class="contact-form">
 					<div class="container">
 							<div class="row">
-									<div class="col-lg-12">
-											<h3>SEND MESSAGE</h3>
-											<form action="#">
+									<div class="col-12 py-4">
+											<h5 class="fw-bold">Komentar</h5>
+											<p>Tulis komentarmu tentang tulisan ini</p>
+											<form method="post" action="<?php echo site_url('send_comment');?>" role="form" class="form">
+											<input type="hidden" name="post_id" value="<?php echo $post_id;?>" required>
+                      <input type="hidden" name="slug" value="<?php echo $slug;?>" required>
+                        <div class="input-list d-md-flex">
+                            <input type="text" name="name" class="w-100 " placeholder="Name" >
+													</div>
 													<div class="input-list d-flex">
-															<input type="text w-100" placeholder="Name">
-														</div>
-														<div class="input-list ">
-															<input type="text d-flex w-100" placeholder="Email">
-														</div>
-													<textarea placeholder="Question"></textarea>
-													<button type="submit" class="site-btn">Send question</button>
+														<input type="email" name="email" class="w-100 " placeholder="Email">
+													</div>
+                        <textarea name="comment" class="w-100 " placeholder="Question"></textarea>
+												<div class="text-center">
+													<button type="submit" class="btn btn-primary btn-sm fw-bold rounded-pill py-2 px-5 bg-blue-link border-0 shadow">Submit</button>
+													<button type="button" class="btn btn-danger btn-sm fw-bold rounded-pill py-2 px-5  border-0 shadow" data-bs-dismiss="modal">Cancel</button>
+												</div>                                        
 											</form>
 									</div>
 							</div>
 					</div>
 				</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

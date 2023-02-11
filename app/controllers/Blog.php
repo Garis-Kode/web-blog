@@ -146,14 +146,18 @@ class Blog extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('comment', 'Comment', 'required');
 		if ($this->form_validation->run() == FALSE){
-			$this->session->set_flashdata('msg','<div class="alert alert-danger">Mohon masukkan input yang Valid!</div>');
+			$this->session->set_flashdata('msg','
+			<div class="alert alert-danger" role="alert">
+				<i class="bi bi-exclamation-circle-fill"></i> Tolong masukan input yang valid
+			</div>
+			');
 			redirect('blog/'.$slug);
 		}else{
 			$name=$this->input->post('name',TRUE);
 			$email=$this->input->post('email',TRUE);
 			$comment=htmlspecialchars($this->input->post('comment',TRUE),ENT_QUOTES);
 			$this->blog_model->save_comment($post_id,$name,$email,$comment);
-			$this->session->set_flashdata('msg','<div class="alert alert-info">Terima kasih atas respon Anda, komentar Anda akan tampil setelah moderasi</div>');
+			$this->session->set_flashdata('msg','<div class="alert alert-primary"><i class="bi bi-info-circle-fill"></i> Terima kasih atas respon Anda, komentar Anda akan tampil setelah moderasi</div>');
 			redirect('blog/'.$slug);
 		}
 	}
