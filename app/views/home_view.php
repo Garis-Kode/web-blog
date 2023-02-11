@@ -40,6 +40,8 @@
     <link rel="stylesheet" href="<?= base_url('static/') ?>css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="<?= base_url('static/') ?>css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?= base_url('static/') ?>css/style.css" type="text/css">
+    <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
+
 </head>
 
 <body>
@@ -112,9 +114,24 @@
 
 		<?php echo $footer;?>
 
+<!-- Modal -->
+<div class="modal fade" id="sub" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-4 shadow py-5">
+      <div class="modal-body py-0 text-center">
+        <img src="<?= base_url('assets/images/speaker.png') ?>" width="200" alt="">
+        <h3 class="fw-bold mt-3">HORE...!!</h3>
+        <p>Terima kasih telah berlangganan! <br>Nantikan notifikasi dari kami</p>
+      </div>
+      <div class="modal-footer text-center flex-column border-top-0">
+      <button type="button" class="btn btn-primary btn-sm fw-bold rounded-pill py-2 px-5 bg-blue border-0 shadow" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 		<!-- Js Plugins -->
-    <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
     <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>

@@ -52,60 +52,105 @@
     </footer>
     <!-- Footer Section End -->
 
-    <!-- Modal -->
-<div class="modal fade" id="sub" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content rounded-4 shadow py-5">
-      <div class="modal-body py-0 text-center">
-        <img src="<?= base_url('assets/images/speaker.png') ?>" width="200" alt="">
-        <h3 class="fw-bold mt-3">HORE...!!</h3>
-        <p>Terima kasih telah berlangganan! <br>Nantikan notifikasi dari kami</p>
-      </div>
-      <div class="modal-footer text-center flex-column border-top-0">
-      <button type="button" class="btn btn-primary btn-sm fw-bold rounded-pill py-2 px-5 bg-blue border-0 shadow" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-    <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
         <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
-        <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+        <h1 class="fw-bold mb-0 fs-2">Login</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" fdprocessedid="yiwimk"></button>
       </div>
 
       <div class="modal-body p-5 pt-0">
-        <form class="">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" fdprocessedid="bj0zl">
-            <label for="floatingInput">Email</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" fdprocessedid="8y3jw">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" fdprocessedid="me91kwm">Sign up</button>
-          <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
-          <hr class="my-4">
-          <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
-          <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-3" type="submit" fdprocessedid="j50fmp">
-            <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"></use></svg>
-            Sign up with Twitter
-          </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit" fdprocessedid="jqsz">
-            <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"></use></svg>
-            Sign up with Facebook
-          </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit" fdprocessedid="jt9psp">
-            <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"></use></svg>
-            Sign up with GitHub
-          </button>
-        </form>
+                    <h6 class=" text-muted">Masuk sebagai author garis kode</h6>
+                    <form action="https://tif-unimal20.web.id/auth/login_proses" method="POST" class="row g-4 pt-4">
+                      <div class="col-12">
+                          <label class="fw-semibold">Email<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                              <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
+                          </div>
+                      </div>
+
+                      <div class="col-12">
+                          <div class="d-flex justify-content-between">
+                            <label class="fw-semibold">Password<span class="text-danger">*</span></label>
+                            <a href="#" onclick="forget()" class="text-end text-primary"><small>Lupa Password?</small></a>
+                          </div>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                              <input type="password" class="form-control" name="password" placeholder="Enter Password" required="">
+                          </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+                              <label class="form-check-label" for="inlineFormCheck">Remember me</label>
+                          </div>
+                      </div>
+
+                      <div class="d-grid gap-2 ">
+                        <button type="submit" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Log In</button>
+                      </div>
+                      <div class="col-sm-12 text-center">
+                          Belum Memiliki Akun?<a href="#" onclick="register()" class="text-primary">Daftar</a>
+                      </div>
+                    </form>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="forget" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+        <h1 class="fw-bold mb-0 fs-2">Forget</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" fdprocessedid="yiwimk"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+                    <h6 class=" text-muted">Masukan Email Untuk Mereset Password Anda</h6>
+                    <form action="https://tif-unimal20.web.id/auth/login_proses" method="POST" class="row g-4 pt-4">
+                      <div class="col-12">
+                          <label class="fw-semibold">Email<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                              <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
+                          </div>
+                      </div>
+
+                      <div class="d-grid gap-2 ">
+                        <button type="submit" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Submit</button>
+                      </div>
+                      <div class="col-sm-12 text-center">
+                          <a href="#"  onclick="login()" ><span class="text-primary">Kembali Login</span></a>
+                      </div>
+                    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function login(){
+    $('#register').modal('hide');
+    $('#forget').modal('hide');
+    $('#login').modal('show');
+}
+function register(){
+    $('#login').modal('hide');
+    $('#forget').modal('hide');
+    $('#register').modal('show');
+}
+function forget(){
+    $('#login').modal('hide');
+    $('#register').modal('hide');
+    $('#forget').modal('show');
+}
+</script>
