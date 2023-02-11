@@ -23,7 +23,7 @@
         <nav class="offcanvas__menu mobile-menu">
             <form class="d-flex my-4" action="<?php echo site_url('search');?>" method="GET" role="search">
                 <input class="form-control me-2 border-0 ps-3" type="search" name="q" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit"><i class="bi bi-search "></i></button>
+                <button class="btn btn-outline-light" typ                                           e="submit"><i class="bi bi-search "></i></button>
             </form>
             <ul>
                 <li class="py-2"><a href="<?= base_url() ?>">Home</a></li>
@@ -69,8 +69,13 @@
                             <li class="<?php if($this->uri->segment(1) == 'contact'){echo'active';} ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
                             <li><a href="<?= $site_forum ?>">Forum</a></li>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="py-1 px-1 me-5 fw-bold fs-5 text-white"><i class="bi bi-search "></i></a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="py-1 px-4 btn btn-outline-light btn-sm rounded-pill fw-bold me-2">Login</a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#register" class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Register</a>
+
+                            <?php if($this->session->userdata('logged') ==TRUE){?>
+                                <a href="<?= base_url('backend/dashboard') ?>" class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Dashboard</a>
+                            <?php }else{ ?>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="py-1 px-4 btn btn-outline-light btn-sm rounded-pill fw-bold me-2">Login</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#register" class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Register</a>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </div>

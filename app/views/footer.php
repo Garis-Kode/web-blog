@@ -69,7 +69,7 @@
                       <div class="col-12">
                           <label class="fw-semibold">Email<span class="text-danger">*</span></label>
                           <div class="input-group">
-                              <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                              <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
                               <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
                           </div>
                       </div>
@@ -120,7 +120,7 @@
                       <div class="col-12">
                           <label class="fw-semibold">Email<span class="text-danger">*</span></label>
                           <div class="input-group">
-                              <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                              <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
                               <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
                           </div>
                       </div>
@@ -130,6 +130,62 @@
                       </div>
                       <div class="col-sm-12 text-center">
                           <a href="#"  onclick="login()" ><span class="text-primary">Kembali Login</span></a>
+                      </div>
+                    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <!-- <h1 class="modal-title fs-5" >Modal title</h1> -->
+        <h1 class="fw-bold mb-0 fs-2">Register</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" fdprocessedid="yiwimk"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+                    <h6 class=" text-muted">Register untuk menjadi author Garis Kode</h6>
+                    <form action="https://tif-unimal20.web.id/auth/login_proses" method="POST" class="row g-4 pt-4">
+                      <div class="col-12">
+                          <label class="fw-semibold">Name<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                              <input type="text" class="form-control" name="nama" placeholder="Enter Name" required="">
+                          </div>
+                      </div>
+
+                      <div class="col-12">
+                          <label class="fw-semibold">Email<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                              <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
+                          </div>
+                      </div>
+
+                      <div class="col-12">
+                          <label class="fw-semibold">Password<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                              <input type="password" class="form-control" name="email" placeholder="Password" required="">
+                          </div>
+                      </div>
+
+                      <div class="col-12">
+                          <label class="fw-semibold">Confirm Password<span class="text-danger">*</span></label>
+                          <div class="input-group">
+                              <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                              <input type="password" class="form-control" name="email" placeholder="Confirm Password" required="">
+                          </div>
+                      </div>
+
+                      <div class="d-grid gap-2 ">
+                        <button type="submit" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Register</button>
+                      </div>
+                      <div class="col-sm-12 text-center">
+                          Sudah Memiliki Akun? <a href="#"  onclick="login()" ><span class="text-primary">Login</span></a>
                       </div>
                     </form>
       </div>

@@ -25,8 +25,12 @@
                 </li>
                 <li class="py-2"><a href="<?= base_url('contact') ?>">Contact</a></li>
                 <li class="py-2"><a href="<?= $site_forum ?>">Forum</a></li>
-                <li class="py-2"><a href="./contact.html">Login</a></li>
-                <li class="py-2"><a href="./contact.html">Register</a></li>
+                <?php if($this->session->userdata('logged') ==TRUE){?>
+                    <li class="py-2"><a href="<?= base_url('backend/dashboard') ?>">Dashboard</a></li>
+                <?php }else{ ?>
+                    <li class="py-2"><a href="#" data-bs-toggle="modal" data-bs-target="#login">Login</a></li>
+                <li class="py-2"><a href="#" data-bs-toggle="modal" data-bs-target="#register">Register</a></li>
+                <?php } ?>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -57,8 +61,12 @@
                             <li><a href="<?= base_url('contact') ?>">Contact</a></li>
                             <li><a href="<?= $site_forum ?>">Forum</a></li>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="py-1 px-1 me-5 fw-bold fs-5 text-white"><i class="bi bi-search "></i></a>
-                            <a href="#"  class="py-1 px-4 btn btn-outline-light btn-sm rounded-pill fw-bold me-2">Login</a>
-                            <a href="#"  class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Register</a>
+                            <?php if($this->session->userdata('logged') ==TRUE){?>
+                                <a href="<?= base_url('backend/dashboard') ?>" class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Dashboard</a>
+                            <?php }else{ ?>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#login" class="py-1 px-4 btn btn-outline-light btn-sm rounded-pill fw-bold me-2">Login</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#register" class="py-1 px-4 btn btn-light btn-sm rounded-pill fw-bold ms-2">Register</a>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </div>
