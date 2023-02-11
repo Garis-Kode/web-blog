@@ -74,7 +74,7 @@ class Blog extends CI_Controller {
 		
 		$x['url_next']=site_url('blog/page/'.$next_page);
 		$x['populer_post'] = $this->blog_model->get_popular_post();
-		$site_info = $this->db->get('tbl_site', 1)->row();
+		$x['penulis'] = $this->db->get('tbl_site', 1)->row_array ();
 		$x['logo'] =  $site_info->site_logo_header;
 		$x['icon'] = $site_info->site_favicon;
 		$x['site_image'] = $site_info->site_logo_big;
@@ -106,6 +106,11 @@ class Blog extends CI_Controller {
     		$x['views']=$q['post_views'];
     		$x['comment']=$q['comment_total'];
     		$x['author']=$q['user_name'];
+				$x['author_desc']=$q['user_description'];
+				$x['author_ig']=$q['user_instagram'];
+				$x['author_git']=$q['user_github'];
+				$x['author_in']=$q['user_linkedin'];
+				$x['author_img']=$q['user_photo'];
     		$x['category']=$q['category_name'];
     		$x['category_slug']=$q['category_slug'];
     		$x['date']=$q['post_date'];

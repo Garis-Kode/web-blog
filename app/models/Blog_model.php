@@ -19,7 +19,7 @@ class Blog_model extends CI_Model{
 	}
 
 	function get_post_by_slug($slug){
-		$query = $this->db->query("SELECT tbl_post.*,user_name,COUNT(comment_id) AS comment_total,tbl_category.* FROM tbl_post 
+		$query = $this->db->query("SELECT tbl_post.*,user_name, user_description, user_linkedin, user_github, user_instagram, user_photo, COUNT(comment_id) AS comment_total,tbl_category.* FROM tbl_post 
 			LEFT JOIN tbl_user ON post_user_id=user_id
 			LEFT JOIN tbl_comment ON post_id=comment_post_id
 			LEFT JOIN tbl_category ON post_category_id=category_id
@@ -38,7 +38,7 @@ class Blog_model extends CI_Model{
 	}
 
 	function get_related_post($category_id,$kode){
-		$query = $this->db->query("SELECT * FROM tbl_post LEFT JOIN tbl_user ON post_user_id=user_id 
+		$query = $this->db->query("SELECT * FROM tbl_post LEFT JOIN tbl_category ON post_category_id=category_id 
 			WHERE post_category_id='$category_id' AND NOT post_id='$kode' ORDER BY post_views DESC LIMIT 2");
 		return $query;
 	}
