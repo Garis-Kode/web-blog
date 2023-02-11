@@ -15,7 +15,7 @@ class Result extends CI_Controller{
 	}
 
 	function search(){
-		$query = strip_tags(htmlspecialchars($this->input->get('search_query',TRUE),ENT_QUOTES));
+		$query = strip_tags(htmlspecialchars($this->input->get('q',TRUE),ENT_QUOTES));
 		$result = $this->blog_model->search_blog($query);
 		if ($result->num_rows() > 0) {
 			$x['data'] = $result;

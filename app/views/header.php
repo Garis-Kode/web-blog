@@ -21,6 +21,10 @@
             <a href="<?= base_url() ?>"><img src="<?php echo base_url().'theme/images/'.$logo;?>" width="80" alt=""></a>
         </div>
         <nav class="offcanvas__menu mobile-menu">
+            <form class="d-flex my-4" action="<?php echo site_url('search');?>" method="GET" role="search">
+                <input class="form-control me-2 border-0 ps-3" type="search" name="q" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit"><i class="bi bi-search "></i></button>
+            </form>
             <ul>
                 <li class="py-2"><a href="<?= base_url() ?>">Home</a></li>
                 <li class="py-2"><a href="<?= base_url('blog') ?>">Blog</a>
@@ -84,7 +88,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <form class="input-group" action="<?php echo site_url('search');?>" method="GET">
-                            <input type="text" name="search_query" class="form-control border border-primary form-lg" placeholder="Ketik Apa Saja ...">
+                            <input type="text" name="q" class="form-control border border-primary form-lg" placeholder="Ketik Apa Saja ...">
                             <button class="btn btn-primary bg-blue" type="submit" id="button-addon2">Search</button>
                         </form>
                     </div>  
