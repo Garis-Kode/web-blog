@@ -88,7 +88,9 @@
                             <div class="hero__text mt-5 mt-lg-0">
                                 <h2 class="mb-2"><?= $site_name ?></h2>
                                 <h5 class="mb-5"><?= $site_desc ?></h5>
-                                <a href="#" class="btn btn-light fw-bold rounded-pill py-2 px-4">Join now</a>
+                                <?php if($this->session->userdata('logged') !=TRUE){?>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#register" class="btn btn-light fw-bold rounded-pill py-2 px-4">Join now</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
