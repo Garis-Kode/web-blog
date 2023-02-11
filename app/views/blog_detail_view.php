@@ -1,49 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-
-		<!-- Page Title -->
-		<title><?php echo $title;?></title>
-		
-		<!-- Page header -->
-		<meta charset="utf-8"/>	
-		<meta name="keywords" content="<?php echo $tag;?>"/>
-		<meta name="author" content="<?php echo $author;?>"/>
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-		<meta name="viewport" content="width=device-width"/>
-		<!-- CSS -->
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/bootstrap.min.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/style.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css')?>"/>
-		<!-- Favicons -->		
-		<link rel="shortcut icon" href="<?php echo base_url('theme/images/'.$icon);?>">
-		<link href="<?php echo base_url().'theme/css/jssocials.css'?>" rel="stylesheet">
-		<link href="<?php echo base_url().'theme/css/jssocials-theme-flat.css'?>" rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/font-awesome.min.css'?>"/>
-		<!-- SEO Tags -->
-		<meta name="description" content="<?php echo $description;?>"/>
-		<link rel="canonical" href="<?php echo site_url('blog/'.$slug);?>" />
-		<meta property="og:locale" content="id_ID" />
-		<meta property="og:type" content="article" />
-		<meta property="og:title" content="<?php echo $title;?>" />
-		<meta property="og:description" content="<?php echo $description;?>" />
-		<meta property="og:url" content="<?php echo site_url('blog/'.$slug);?>" />
-		<meta property="og:site_name" content="<?php echo $site_name;?>" />
-		<meta property="article:publisher" content="<?php echo $site_facebook;?>" />
-		<meta property="article:section" content="<?php echo $category;?>" />
-		<meta property="og:image" content="<?php echo base_url().'assets/images/'.$image;?>" />
-		<meta property="og:image:secure_url" content="<?php echo base_url().'assets/images/'.$image;?>" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:description" content="<?php echo $description;?>" />
-		<meta name="twitter:title" content="<?php echo $title;?>" />
-		<meta name="twitter:site" content="<?php echo $site_twitter;?>" />
-		<meta name="twitter:image" content="<?php echo base_url().'assets/images/'.$image;?>" />
-		<!-- / End SEO Tags. -->
-	</head>
-
-	<!DOCTYPE html>
-<html lang="en">
-	<head>
 		<title><?php echo $title;?></title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -210,7 +167,7 @@
 															<?php foreach ($show_comments->result() as $row):?>
                                 <div class="blog__details__comment__item">
                                     <div class="blog__details__comment__pic">
-                                        <img src="<?php echo base_url().'assets/images/'.$row->comment_image;?>" alt="">
+                                        <img src="https://ui-avatars.com/api/?name=<?php echo $row->comment_name;?>&background=random&color=ffff" alt="">
                                     </div>
                                     <div class="blog__details__comment__text">
                                         <h5><?php echo $row->comment_name;?></h5>

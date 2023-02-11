@@ -119,6 +119,14 @@
     <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
     <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>
     <script src="<?= base_url('static/') ?>js/main.js"></script>
+    <?php if($this->session->flashdata('message') == 1){?>
+        <script>
+            window.onload = () => {
+                $('#sub').modal('show');
+            }
+        </script>
+    <?php } ?>
+
 </body>
 
 </html>
