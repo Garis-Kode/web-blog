@@ -54,7 +54,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="<?= base_url() ?>">Home</a></li>
-                            <li class="active"><a href="<?= base_url('blog') ?>">Blog</a>
+                            <li class="<?php if($this->uri->segment(1) == 'blog' OR $this->uri->segment(1) == 'category' OR $this->uri->segment(1) == 'tag' OR $this->uri->segment(1) == 'search'){echo'active';} ?>"><a href="<?= base_url('blog') ?>">Blog</a>
                                 <ul class="dropdown">
                                     <li><a href="<?= base_url('blog') ?>">All</a></li>
                                     <?php foreach($getCategory->result() as $row):?>
@@ -62,7 +62,7 @@
                                     <?php endforeach;?>
                                 </ul>
                             </li>
-                            <li><a href="<?= base_url('contact') ?>">Contact</a></li>
+                            <li class="<?php if($this->uri->segment(1) == 'contact'){echo'active';} ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
                             <li><a href="<?= $site_forum ?>">Forum</a></li>
                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="py-1 px-1 me-5 fw-bold fs-5 text-white"><i class="bi bi-search "></i></a>
                             <a href="#"  class="py-1 px-4 btn btn-outline-light btn-sm rounded-pill fw-bold me-2">Login</a>

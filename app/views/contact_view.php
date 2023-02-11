@@ -1,184 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-
-		<!-- Page Title -->
-		<title>Contact</title>
-		
-		<!-- Page header -->
-		<meta charset="utf-8"/>	
-		<meta name="description" content=""/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content=""/>
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-		<meta name="viewport" content="width=device-width"/>
-		<!-- CSS -->
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/bootstrap.min.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/style.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url().'theme/css/font-awesome.min.css'?>"/>
-		<!-- Favicons -->		
+		<title>Garis Kode - Contact</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="<?php echo base_url('theme/images/'.$icon);?>">
-		
+		<!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('static/') ?>css/style.css" type="text/css">
 	</head>
-	<body class="content-animate">
 
-		<!-- PRELOADER
-		==================================================-->	
-		<div class="page-loader">
-			<div class="loader-area"></div>
-			<div class="loader font-face1">loading...	
-			</div>
-		</div>   
-		
-		<!-- PAGE
-		==================================================-->	
-		<div id="top" class="page">
-			
-			<!-- Navigation panel
-			================================================== -->		
-			<?php echo $header;?>
-				<!-- End Navigation panel -->
-		
-			<!-- Main Content
-			==================================================-->		
-			<main class="cd-main-content mt-100">
+	<body>
+    <!-- Page Preloder -->
 
-				
-				
-				<!-- SECTION ABOUT
-				================================================== 	-->	
-				<section class="page-section small-section">				
-					<div class="container relative">
-						
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<!-- SECTION BLOG ITEM
-								================================================== -->
-								<div class="blog-item clearfix">						
-									
-									
-									<!--POST LEAVE COMMENT-->
-									<div class="comments-heading text-center mb-30">
-										<hgroup>
-											<h2 class="font-face1 section-heading">Contact</h2>
-										</hgroup>									
-									</div>
-									<?php echo $this->session->flashdata('msg');?>
-									<form method="post" action="<?php echo site_url('contact/send');?>" role="form" class="form">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													 <input type="text" name="name" class="full_width" placeholder="Name *" maxlength="100" required="">										
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<input type="email" name="email" class="full_width" placeholder="Email *" maxlength="100" required="">									
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<input type="text" name="subject" class="full_width" placeholder="Subject *" maxlength="100" required="">									
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<textarea name="message" class="full_width" rows="6" placeholder="Comment *" maxlength="400" required></textarea>										
-												</div>
-											</div>
-											<div class="col-md-12 center-xs">
-												<button type="submit" class="btn bg-black white-color">
-													Submit
-												</button>
-											</div>	
-										</div>		
-									</form>
-									<!--END POST LEAVE COMMENT-->
-									
+
+		<?php echo $header;?>
+
+		<div class="breadcrumb-section ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__option my-1">
+                        <a href="<?= base_url(); ?>"><span class="fa fa-home"></span> Home</a>
+												<a href="<?= base_url($this->uri->segment(1)); ?>"></span> <?= $this->uri->segment(1); ?></a>
+												<span><?= $this->uri->segment(2); ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+		<div class="contact-form spad bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+										<h4 class="mb-2 fw-bold">Contact Us</h4>
+                    <p class="mb-5">Tulis apa saja yang mau kamu bicarain</p>
+											<form method="post" action="<?php echo site_url('contact/send');?>" role="form" class="form">
+                        <div class="input-list d-md-flex">
+                            <input type="text" name="name"  class="w-100 shadow-sm"  placeholder="Name">
+                            <input type="text" name="email" class="w-100 shadow-sm	" placeholder="Email">
+													</div>
+													<div class="input-list d-flex">
+														<input type="text" name="subject" class="w-100 shadow-sm" placeholder="Subject">
+													</div>
+                        <textarea name="message" class="w-100 shadow-sm" placeholder="Question"></textarea>
+												<button type="submit" class="btn btn-primary fw-bold rounded-pill py-2 px-5 bg-blue-link border-0 shadow">Send</button>                    </form>
+											</form>
 								</div>
-							
-							</div>
-						</div>
-					</div>					
-				</section>								
-				
-				<!-- SECTION SUBSCRIBE
-				================================================== -->
-				<section  class="page-section subscribe-section small-section">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-10 col-md-offset-1">	
-								<div class="form-subscribe mb-50 mb-sm-0">
-									<div class="col-sm-6 mb-sm-40">
-										<h2 class="heading5 mt-0 font-face1 white-color fw700 mb-0" >Newsletter.</h2>
-									</div>
-									<div class="col-sm-6">										
-										<form class="form-inline" action="<?php echo site_url('subscribe');?>" method="post">
-											<div class="form-group">
-												<input type="hidden" name="url" value="<?php echo site_url('contact');?>" required>
-												<input type="email" name="email" required placeholder="Your Email..." class="form-control">
-												<button type="submit" class="btn btn-subscribe">Subscribe</button>
-											</div>
-										</form>										
-									</div>
-								</div>
-								<div><?php echo $this->session->flashdata('message');?></div>									
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				
-				<hr class="nomargin nopadding"/>
-				
-				<!-- FOOTER
-				================================================== -->	
-				<?php echo $footer;?>
-				
-				</main>		
-	
-		</div>
+            </div>
+        </div>
+    </div>
+
+		<?php echo $footer;?>
 			
-		<!-- Modal Search-->
-		<div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10000;">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-body">	
-		      	<form action="<?php echo site_url('search');?>" method="GET">
-		        	<div class="input-group">
-		              <input type="text" name="search_query" class="form-control input-search" style="height: 40px;" placeholder="Search..." required>
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="submit" style="height: 40px;background-color: #ccc;"><span class="fa fa-search"></span></button>
-				      </span>
-				    </div>
-				</form>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		
-		<!-- JAVASCRIPT
-		==================================================-->
-		<script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.easing.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/bootstrap.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/waypoints.min.js')?>"></script>		
-		<script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.localScroll.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.viewport.mini.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.sticky.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.fitvids.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.parallax-1.1.3.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/isotope.pkgd.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/imagesloaded.pkgd.min.js')?>"></script> 
-		<script src="<?php echo base_url('theme/js/masonry.pkgd.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.magnific-popup.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.counterup.min.js')?>"></script>					
-		<script src="<?php echo base_url('theme/js/slick.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/wow.min.js')?>"></script>		
-		<script src="<?php echo base_url('theme/js/script.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jssocials.min.js')?>"></script>	
-		
-	</body>
+		<!-- Js Plugins -->
+    <script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <script src="<?= base_url('static/') ?>js/jquery.slicknav.js"></script>
+    <script src="<?= base_url('static/') ?>js/owl.carousel.min.js"></script>
+    <script src="<?= base_url('static/') ?>js/main.js"></script>
+</body>
 </html>

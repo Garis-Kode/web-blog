@@ -76,7 +76,7 @@ class Blog_model extends CI_Model{
     }
 
     function search_blog($query){
-    	$result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
+    	$result = $this->db->query("SELECT tbl_post.*,user_name,user_photo, category_name FROM tbl_post
 			LEFT JOIN tbl_user ON post_user_id=user_id
 			LEFT JOIN tbl_category ON post_category_id=category_id
 			WHERE post_title LIKE '%$query%' OR category_name LIKE '%$query%' OR post_tags LIKE '%$query%' LIMIT 12");
