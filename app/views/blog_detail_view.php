@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="<?= base_url('static/') ?>css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?= base_url('static/') ?>css/style.css" type="text/css">
 		<script src="<?= base_url('static/') ?>js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63e8b4a3e3c0010019c782b5&product=sticky-share-buttons&source=platform" async="async"></script>
 
 	</head>
 
@@ -88,31 +89,12 @@
     <!-- Blog Hero Section End -->
 
     <!-- Blog Details Section Begin -->
-    <section class="blog-details-section  bg-light">
+    <section class="blog-details-section">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="blog__details__text">
-                        <div class="blog__details__social">
-                            <div class="position-sticky">
-                                <span>Share</span>
-                                <ul>
-                                    <li>
-                                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    </li>
-																		<li>
-                                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="sharethis-sticky-share-buttons"></div>
                         <div class="blog__details__title">
 												<?php echo $content;?>
                         </div>

@@ -64,13 +64,15 @@
       </div>
 
       <div class="modal-body p-5 pt-0">
-                    <h6 class=" text-muted">Masuk sebagai author garis kode</h6>
-                    <form action="https://tif-unimal20.web.id/auth/login_proses" method="POST" class="row g-4 pt-4">
+                    <h6 class=" text-muted mb-3">Masuk sebagai author garis kode</h6>
+                    <?php echo $this->session->flashdata('msg');?>
+                    <form action="<?php echo site_url('backend/auth/login');?>" method="POST" class="row g-4 pt-3">
+                    <input type="hidden" name="url" value="<?= base_url().$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3)?>">
                       <div class="col-12">
                           <label class="fw-semibold">Email<span class="text-danger">*</span></label>
                           <div class="input-group">
                               <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
-                              <input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
+                              <input type="email" class="form-control" name="username" placeholder="Enter Email" required="">
                           </div>
                       </div>
 
@@ -126,7 +128,7 @@
                       </div>
 
                       <div class="d-grid gap-2 ">
-                        <button type="submit" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Submit</button>
+                        <button onclick="pesan()" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Submit</button>
                       </div>
                       <div class="col-sm-12 text-center">
                           <a href="#"  onclick="login()" ><span class="text-primary">Kembali Login</span></a>
@@ -182,7 +184,7 @@
                       </div>
 
                       <div class="d-grid gap-2 ">
-                        <button type="submit" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Register</button>
+                        <button onclick="pesan()" class="btn btn-primary bg-blue-link rounded-pill border-0 button-slave mx-3  rounded"> Register</button>
                       </div>
                       <div class="col-sm-12 text-center">
                           Sudah Memiliki Akun? <a href="#"  onclick="login()" ><span class="text-primary">Login</span></a>
@@ -193,7 +195,27 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="pesan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content rounded-4 shadow py-5">
+      <div class="modal-body py-0 text-center">
+        <img src="<?= base_url('assets/images/speaker.png') ?>" width="200" alt="">
+        <h3 class="fw-bold mt-3">MAAF!!</h3>
+        <p>Fitur ini sedang dalam pengembangan!</p>
+      </div>
+      <div class="modal-footer text-center flex-column border-top-0">
+      <button type="button" class="btn btn-primary btn-sm fw-bold rounded-pill py-2 px-5 bg-blue border-0 shadow" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  // console.log(login());
+  window.onload = () => {
+    <?= $this->session->flashdata('modal');?>
+      }
 function login(){
     $('#register').modal('hide');
     $('#forget').modal('hide');
@@ -208,5 +230,12 @@ function forget(){
     $('#login').modal('hide');
     $('#register').modal('hide');
     $('#forget').modal('show');
+}
+function pesan(){
+    $('#login').modal('hide');
+    $('#register').modal('hide');
+    $('#forget').modal('hide');
+    $('#pesan').modal('show');
+
 }
 </script>

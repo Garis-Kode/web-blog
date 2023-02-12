@@ -39,20 +39,23 @@
                     <div class="row">
                         <div class="col-md-3 center">
                             <div class="login-box">
-                                <a href="#" class="logo-name text-lg text-center">MBLOG</a>
-                                <p class="text-center m-t-md">Please login into your account.</p>
+                                <a href="#" class="logo-name text-lg text-center">
+                                    <img src="<?php echo base_url().'assets/images/favicon.png'?>" width="100" alt="">
+                                </a>
+                                <p class="text-center m-t-md">Reset Password</p>
                                 <?php echo $this->session->flashdata('msg');?>
                                 <form class="m-t-md" action="<?php echo site_url('backend/login/auth');?>" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="username" placeholder="Email" required>
+                                        <label for="">New Pass</label>
+                                        <input type="email" class="form-control border-0" name="username" placeholder="New Password" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                        <label for="">Confirm</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Confirm New Password" required>
                                     </div>
-                                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                     
                                 </form>
-                                <p class="text-center m-t-xs text-sm"><?php echo date('Y');?> &copy; Mblog by M Fikri.</p>
                             </div>
                         </div>
                     </div><!-- Row -->
